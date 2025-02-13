@@ -19,6 +19,19 @@
 - 根据qualys的报告，抽样建立一个越狱测试集，测试各家API的越狱概率
 - 编写一个后端，支持使用任意一家的API，将用户的query套用某个越狱模板进行测试。
 
+# jailbreak通过率测试
+
+选取M个攻击目标query prompt和N个transfer的meta-prompt。
+
+从MN组合中，抽样出KN个(prompt, meta-prompt) , ( K << M )
+
+然后进行测试，通过transfer-query之后，再用transfer后的prompt进行query，然后用llm评估攻击是否成功（判断是否拒绝回答），统计通过率
+
+# Benchmark subset测试
+
+从deepseek原本报告中，找一些确定性评价的题目子集，抽样一个较小的subset，对各家的api进行评估。
+
+
 # TODO
 
 - wzq，各家api和接口的收集，抽象类编写
