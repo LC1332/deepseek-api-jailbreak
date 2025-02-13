@@ -17,6 +17,11 @@
 - 根据qualys的报告，抽样建立一个越狱测试集，测试各家API的越狱概率
 - 编写一个后端，支持使用任意一家的API，将用户的query套用某个越狱模板进行测试。
 
+# TODO
+
+- wzq，各家api和接口的收集，抽象类编写
+- 鲁叔， 去看看breakjail的benchmark
+
 # 参考资料
 
 DeepSeek的攻击报告
