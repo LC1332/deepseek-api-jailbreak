@@ -22,9 +22,24 @@
 # TODO
 
 - wzq，各家api和接口的收集，抽象类编写
-- 鲁叔， 去看看breakjail的benchmark
+- DONE, 鲁叔， 去初步看看breakjail的benchmark
+- 鲁叔，编写一个基础的gradio的demo，支持一次prompt转写和一次测试
+- 详细检查可以在api下完成的prompt translate的meta prompt
 
 # 参考资料
 
 DeepSeek的攻击报告
 https://blog.qualys.com/vulnerabilities-threat-research/2025/01/31/deepseek-failed-over-half-of-the-jailbreak-tests-by-qualys-totalai
+
+---
+
+## Paper Reading TODO
+
+- 查阅lulu/0214_jailbreak_paper_reading.md，检查里面有code的paper
+- 对于一个paper，如果是可以使用api进行prompt转换的，则保留
+    -比较典型的有https://github.com/Lucas-TY/llm_Implicit_reference这个
+- 对于直接加字符串的，也可以理解成是一样的
+- 保留这些meta prompt进行汇总
+- 所以我们之后会写一个统一接口，支持用户用某一篇paper的方式，将prompt转化为一个针对性越狱的prompt，检查后进一步去问讯deepseek
+
+
