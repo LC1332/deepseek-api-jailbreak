@@ -1,36 +1,30 @@
-import requests
+import openai
+
 class Server:
-    url=None
-    model=None
-    def __init__(self,key):
-        self.key=key
-    def send_message(self,msg):
-        payload = {
-            "model": self.model,
-            "messages": [
-                {
-                    "content": msg,
-                    "role": "user"
-                }
-            ]
-        }
-        headers = {
-            "Authorization": f"Bearer {self.key}",
-            "Content-Type": "application/json"
-        }
-        response = requests.request("POST", self.url, json=payload, headers=headers)
-        self.content=response
-        
+    url = None
+    model = None
+
+    def __init__(self, key):
+        self.key = key
+        self.client = openai.OpenAI(api_key=self.key, base_url=self.url)
+        self.content = None
+
+    def send_message(self, msg):
+        self.content = self.client.chat.completions.create(
+            model=self.model,
+            messages=[{"role": "user", "content": msg}]
+        )
+
     def get_response(self):
         return self.content
 
-class siliconflow(Server):
-    model="deepseek-ai/DeepSeek-V3"
-    url="https://api.siliconflow.cn/v1/chat/completions"
+class SiliconFlow(Server):
+    model = "deepseek-ai/DeepSeek-V3"
+    url = "https://api.siliconflow.cn/v1"
+    
     def get_response(self):
-        response_json=self.content.json()
-        return response_json["choices"][0]["message"]["content"]
+        return self.content.choices[0].message.content if self.content else None
 
-class imyai(Server):
-    model="deepseek-v3"
-    url="https://api.imyaigc.top"
+class ImyAI(Server):
+    model = "deepseek-v3"
+    url = "https://api.imyaigc.top"
