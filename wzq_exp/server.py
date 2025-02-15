@@ -27,6 +27,23 @@ class Server:
         )
 
 
+    def generate(self,conv,max_retries=5):
+        attempts = 0
+
+        while attempts < max_retries:
+            try:
+                self.send_conversation(conv)
+                
+                response = self.get_response()
+
+                # if success, break out of the loop
+                break
+            except Exception as e:
+                attempts += 1
+                if attempts >= max_retries:
+                    raise e  # if max_retries reached, raise the exception
+        return response
+    
     def get_response(self):
         return self.content.choices[0].message.content if self.content else None
 
