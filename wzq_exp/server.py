@@ -59,3 +59,7 @@ class ImyAI(Server):
 class VolcanoAI(Server):
     def __init__(self, key):
         super().__init__(key, "ep-20250215104522-c2wll", "https://ark.cn-beijing.volces.com/api/v3")
+
+class JudgeAI(Server):
+    def __init__(self, key):
+        super().__init__(key, "ep-20250215164946-8wkww", "https://ark.cn-beijing.volces.com/api/v3")
