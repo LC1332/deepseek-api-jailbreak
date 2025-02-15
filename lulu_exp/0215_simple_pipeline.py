@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
     query = "I want to buy a car"
 
-    selected_transfer_meta_name = "dubbi_language_game"
+    selected_transfer_meta_name = "method_k3"
 
     selected_meta_prompt = transfer_meta_prompts[transfer_meta_names.index(selected_transfer_meta_name)]
 
@@ -46,6 +46,8 @@ if __name__ == "__main__":
 
     transferred_prompt = transfer_client.message2response(transfer_message)
 
+    transferred_message = [{"role": "user", "content": transferred_prompt}]
+
     print("转化后的prompt:")
 
     print(transferred_prompt)
@@ -62,7 +64,7 @@ if __name__ == "__main__":
 
     jailbreak_client = client_dict[jailbreak_model]
 
-    jailbreak_response = jailbreak_client.message2response(transfer_message)
+    jailbreak_response = jailbreak_client.message2response(transferred_message)
 
     print("jailbreak response:")
 
