@@ -34,9 +34,8 @@ if __name__ == "__main__":
 
     transfer_message = selected_meta_prompt(query)
 
-    display_message = message2text(transfer_message)
-
-    print("转化用的prompt",display_message)
+    # display_message = message2text(transfer_message)
+    # print("转化用的prompt",display_message)
 
     transfer_model = "DeepSeek-V3" if "DeepSeek" in model_names else model_names[0]
     translate_model = "GLM-4-Air" if "GLM-4-Air" in model_names else model_names[0]
