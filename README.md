@@ -23,9 +23,17 @@
 
 选取M个攻击目标query prompt和N个transfer的meta-prompt。
 
-从MN组合中，抽样出KN个(prompt, meta-prompt) , ( K << M )
+从MN组合中，抽样出KN个(prompt, meta-prompt) , ( K << M, K = 2 )
 
 然后进行测试，通过transfer-query之后，再用transfer后的prompt进行query，然后用llm评估攻击是否成功（判断是否拒绝回答），统计通过率
+
+抽象程度高
+
+query_string --> messages list of {"role": "user", "content": query_string}
+
+抽象程度低
+
+query_string --> prompt
 
 # Benchmark subset测试
 
@@ -55,4 +63,12 @@ https://blog.qualys.com/vulnerabilities-threat-research/2025/01/31/deepseek-fail
 - 保留这些meta prompt进行汇总
 - 所以我们之后会写一个统一接口，支持用户用某一篇paper的方式，将prompt转化为一个针对性越狱的prompt，检查后进一步去问讯deepseek
 
+
+## 不要浪费key
+
+有query就存下来，记得query的messages是啥 response是啥， 用了啥source的啥模型
+
+## 恶意字符保存
+
+用base64加密保存
 
