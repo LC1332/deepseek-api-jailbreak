@@ -91,3 +91,6 @@ Cheng: 这里wzq可以帮我解析eval_results中的数据，收集 模型和题
 
 
 
+X ~ N(mu, sigma^2 )
+
+M个平均, \bar{X} ~ N(mu, sigma^2 / M )
