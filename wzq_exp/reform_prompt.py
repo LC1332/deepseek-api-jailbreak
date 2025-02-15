@@ -1,5 +1,9 @@
 """some of the code is from https://github.com/Lucas-TY/llm_Implicit_reference.git"""
 
+# Cheng: 这个类的设计有点奇怪
+# PromptReform接受original_prompt，然后用不同的方式返回reformulated prompt
+# 这个设计不合理，至少我们说可以用list of function来设计，而不是一个类
+
 class PromptReform:
     def __init__(self, original_prompt):
         self.original_prompt = original_prompt
