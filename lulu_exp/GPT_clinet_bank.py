@@ -5,7 +5,7 @@ class GPTClientBase:
     def message2response( self, messages: list , max_output_tokens: int = -1 ) -> str:
         # for idel output simply return the last message's content
         if len(messages) > 0 and messages[-1]["role"] == "user":
-            return messages[-1]["content"]
+            return "resposne of : " + messages[-1]["content"]
         else:
             return "hello, now runing GPT client base class"
 
