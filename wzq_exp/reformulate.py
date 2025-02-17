@@ -1,6 +1,5 @@
 """some of the code is from https://github.com/Lucas-TY/llm_Implicit_reference.git"""
 
-from reform_prompt import PromptReform
 from server import *
 
 class AttackAgent():
