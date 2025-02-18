@@ -3,12 +3,13 @@ import openai
 import os
 
 class GPTClientBase:
-    def __init__(self, key, model, url):
+    def __init__(self, key, model, url,provider=None):
         self.key = key
         self.model = model  # Ensure model is set
         self.url = url
         self.client = openai.OpenAI(api_key=self.key, base_url=self.url)
         self.content = None
+        self.provider=provider
 
     def send_message(self, msg):
         self.content = self.client.chat.completions.create(
@@ -47,13 +48,13 @@ class GPTClientBase:
 
 load_dotenv()
 
-SiliconFlow=GPTClientBase(key=os.getenv("SILICONFLOW_API_KEY"), model="deepseek-ai/DeepSeek-V3", url="https://api.siliconflow.cn/v1")
+SiliconFlow=GPTClientBase(key=os.getenv("SILICONFLOW_API_KEY"), model="deepseek-ai/DeepSeek-R1-Distill-Qwen-7B", url="https://api.siliconflow.cn/v1",provider="硅基流动")
 
-VolcanoAI=GPTClientBase(key=os.getenv("VOLCANO_API_KEY"),model="ep-20250215104522-c2wll", url="https://ark.cn-beijing.volces.com/api/v3")
+VolcanoAI=GPTClientBase(key=os.getenv("VOLCANO_API_KEY"),model="ep-20250215104522-c2wll", url="https://ark.cn-beijing.volces.com/api/v3",provider="火山方舟")
 
-JudgeAI=GPTClientBase(key=os.getenv("ARK_API_KEY"), model="ep-20250215164946-8wkww", url="https://ark.cn-beijing.volces.com/api/v3")
+JudgeAI=GPTClientBase(key=os.getenv("ARK_API_KEY"), model="ep-20250215164946-8wkww", url="https://ark.cn-beijing.volces.com/api/v3",provider="火山方舟")
 
-GLM=GPTClientBase(key=os.getenv("GLM_API_KEY"),model="glm-4-air",url="https://open.bigmodel.cn/api/paas/v4/chat/completions")
+GLM=GPTClientBase(key=os.getenv("GLM_API_KEY"),model="glm-4-air",url="https://open.bigmodel.cn/api/paas/v4/chat/completions",provider="智谱")
 
 def get_gpt_clients() -> list:
     return [
@@ -69,4 +70,5 @@ def get_gpt_client_dict() -> dict:
 
 
 if __name__ == "__main__":
-    print(get_gpt_clients())
+    response=SiliconFlow.send_message("hello")
+    print(response)
