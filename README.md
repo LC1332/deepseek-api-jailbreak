@@ -47,6 +47,8 @@ query_string --> prompt
 - 鲁叔，编写一个基础的gradio的demo，支持一次prompt转写和一次测试
 - 详细检查可以在api下完成的prompt translate的meta prompt
 
+
+
 # 参考资料
 
 DeepSeek的攻击报告
