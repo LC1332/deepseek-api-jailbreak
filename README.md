@@ -27,9 +27,9 @@
 
 然后进行测试，通过transfer-query之后，再用transfer后的prompt进行query，然后用llm评估攻击是否成功（判断是否拒绝回答），统计通过率
 
-从deepseek原本报告中，找一些确定性评价的题目子集，抽样一个较小的subset，对各家的api进行评估。
-
 ## jailbreak测试结果
+使用'''prompt_selector.py'''随机选择了10条恶意prompt，进行query后统计结果
+query的详细信息与结果存在./jailbreak_results中
 | Model                         | Jailbreak Rate |
 |-------------------------------|---------------|
 | GLM-4-AIR                     | 90%           |
@@ -38,6 +38,7 @@
 
 # Benchmark subset测试
 
+从deepseek原本报告中，找一些确定性评价的题目子集，抽样一个较小的subset，对各家的api进行评估。
 
 # TODO
 
