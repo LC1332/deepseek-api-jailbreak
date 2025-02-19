@@ -27,17 +27,16 @@
 
 然后进行测试，通过transfer-query之后，再用transfer后的prompt进行query，然后用llm评估攻击是否成功（判断是否拒绝回答），统计通过率
 
-抽象程度高
+从deepseek原本报告中，找一些确定性评价的题目子集，抽样一个较小的subset，对各家的api进行评估。
 
-query_string --> messages list of {"role": "user", "content": query_string}
-
-抽象程度低
-
-query_string --> prompt
+## jailbreak测试结果
+| Model                         | Jailbreak Rate |
+|-------------------------------|---------------|
+| GLM-4-AIR                     | 90%           |
+| 火山方舟DeepSeek-R1            | 90%           |
+| 火山方舟DeepSeek-V3            | 50%           |
 
 # Benchmark subset测试
-
-从deepseek原本报告中，找一些确定性评价的题目子集，抽样一个较小的subset，对各家的api进行评估。
 
 
 # TODO
