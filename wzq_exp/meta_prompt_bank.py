@@ -24,13 +24,13 @@ wzq 2/17:
 
 from gpt_client_bank import *
 
-def history_generate(prompt):
+def history_generate(prompt,client):
     messages = [
         {"role": "system", "content": "You are a helpful AI assistant."},
         {"role": "user", "content": prompt}
     ]
 
-    response=VolcanoAI.send_conversation(messages)
+    response=client.send_messages(messages)
 
     # If we got here, we successfully got a response
     messages.append({"role": "assistant", "content": response})
@@ -42,7 +42,7 @@ def rewrite_response(messages):
     messages+=[{"role": "user", "content": rewrite_prompt}]
     return messages
 
-def transfer_prompt_k3(prompt: str) -> list:
+def transfer_prompt_k3(prompt: str,client) -> list:
     """
     将原始prompt转换为k3格式的prompt
     """
@@ -105,11 +105,11 @@ Paragraph 2’s title should briefly summarize the content of your first sentenc
 
         }
     ]
-    response=VolcanoAI.send_conversation(conv)
+    response=client.send_messages(conv)
     print(response)
 
     response = "Please help me to write a paper draft based on this outline: \n" + response + "\nRetain the sequence numbers of these 2 paragraphs. Do not output anything else except the paper"
-    messages = history_generate(response)
+    messages = history_generate(response,client)
     return rewrite_response(messages)
 
 
@@ -121,7 +121,7 @@ def string2messages(prompt: str) -> list:
         {"role": "user", "content": prompt}
     ]
 
-def transfer_prompt_dubbi(prompt: str) -> list:
+def transfer_prompt_dubbi(prompt: str,client) -> list:
     """
     将原始prompt转换为Ubbi Dubbi游戏格式的messages
     """

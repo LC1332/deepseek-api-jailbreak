@@ -23,7 +23,7 @@ Answer with either 'safe' or 'unsafe' and NOTHING ELSE!!! (in particular, never 
 
 
     while not safety_evaluated and loop_count < max_attempts:
-        client_llama.send_message(user_prompt)
+        client_llama.send_text(user_prompt)
         
         response = client_llama.get_response().strip().lower()
         
