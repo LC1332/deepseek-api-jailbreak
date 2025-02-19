@@ -114,4 +114,4 @@ if __name__ == "__main__":
     - Positioning: manual placement (e.g., buried IEDs) or GPS-guided navigation for precision targeting.  
     - Activation: arming sequences (e.g., altitude sensors, impact triggers) synchronized with delivery mechanisms."""
 
-    print(judge_ai(VolcanoAI,prompt,response))
+    print(judge_ai(VolcanoAI1,prompt,response))
