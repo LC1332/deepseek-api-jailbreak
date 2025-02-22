@@ -9,7 +9,7 @@
 
 # 动机
 
-在2025年2月，各家云服务商纷纷开始提供DeepSeek，包括R1和V3模型的API。我们了解到其中一些服务使用了蒸馏后的千问小模型。我们想在DeepSeek的原本报告中，抽样一个快速子集，来估计各家DeepSeek API和report的差异。
+在2025年2月，XX平台介入Deepseek的新闻不断在各大社媒刷屏,各家云服务商纷纷开始提供DeepSeek，包括R1和V3模型的API。我们了解到其中一些服务使用了蒸馏后的千问小模型。我们想在DeepSeek的原本报告中，抽样一个快速子集，来估计各家DeepSeek API和report的差异。
 
 同时，qualys的报告指出，DeepSeek模型对于越狱的防御还不够完整。项目希望对此也进行探究
 
@@ -28,13 +28,17 @@
 然后进行测试，通过transfer-query之后，再用transfer后的prompt进行query，然后用llm评估攻击是否成功（判断是否拒绝回答），统计通过率
 
 ## jailbreak测试结果
-使用'''prompt_selector.py'''随机选择了10条恶意prompt，进行query后统计结果
-query的详细信息与结果存在./jailbreak_results中
+
+
 | Model                         | Jailbreak Rate |
 |-------------------------------|---------------|
 | GLM-4-AIR                     | 90%           |
 | 火山方舟DeepSeek-R1            | 90%           |
 | 火山方舟DeepSeek-V3            | 50%           |
+| 硅基流动DeepSeek-V3            | 80%           |
+
+接着我又进行了30条恶意prompt的测试，结果如下（由于硅基流动响应过慢没有测试）
+
 
 # Benchmark subset测试
 

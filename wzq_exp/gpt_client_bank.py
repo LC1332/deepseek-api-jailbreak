@@ -7,25 +7,37 @@ no_proxy_client = httpx.Client(transport=httpx.HTTPTransport(proxy=None))
 class GPTClientBase:
     def __init__(self, *args):
         self.key, self.model, self.url, self.provider = args[0], args[1], args[2], args[3] if len(args) > 3 else None
-        self.client = openai.OpenAI(api_key=self.key, base_url=self.url,http_client=no_proxy_client)
+        self.client = openai.OpenAI(api_key=self.key, base_url=self.url, http_client=no_proxy_client)
         self.content = None
 
     def send_text(self, msg):
-        self.content = self.client.chat.completions.create(
-            model=self.model,
-            messages=[{"role": "user", "content": msg}]
-        )
-        return self.get_response()
+        attempts = 0
+        while attempts < 5:
+            try:
+                self.content = self.client.chat.completions.create(
+                    model=self.model,
+                    messages=[{"role": "user", "content": msg}]
+                )
+                return self.get_response()
+            except Exception as e:
+                attempts += 1
+                if attempts >= 5:
+                    raise e
 
     def send_messages(self, conv):
-        self.content = self.client.chat.completions.create(
-            model=self.model,
-            messages=conv  # Pass the conversation messages list
-        )
-        return self.get_response()
+        attempts = 0
+        while attempts < 5:
+            try:
+                self.content = self.client.chat.completions.create(
+                    model=self.model,
+                    messages=conv  # Pass the conversation messages list
+                )
+                return self.get_response()
+            except Exception as e:
+                attempts += 1
+                if attempts >= 5:
+                    raise e
 
-
-    
     def get_response(self):
         return self.content.choices[0].message.content if self.content else None
 
@@ -43,8 +55,8 @@ def get_gpt_clients() -> list:
         ("GLM-4-Air", GLM),
         ("火山方舟DeepSeek-R1", VolcanoAI1),
         ("火山方舟DeepSeek-V3", VolcanoAI2),
-        #("硅基流动DeepSeek-R1", SiliconFlow2),
-        #("硅基流动DeepSeek-V3", SiliconFlow1),
+        #("硅基流动DeepSeek-R1", SiliconFlow1),
+        #("硅基流动DeepSeek-V3", SiliconFlow2),
     ]
 
 def get_gpt_client_dict() -> dict:

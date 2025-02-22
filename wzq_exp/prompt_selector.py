@@ -34,14 +34,23 @@ class PromptSelector:
             return prompt
         return None
 
-'''example usage
 if __name__ == "__main__":
-    csv_filename = "harmful_behaviors_jailbreakbench.csv"  
+    csv_filename = "./input/harmful_behaviors_jailbreakbench.csv"  
     column_name = "Goal"  
     selector = PromptSelector(csv_filename, column_name)
-    for i in range(10):
+    
+    output_csv = "./input/30prompts.csv"
+    prompts = []
+
+    for i in range(30):
         prompt = selector.get_next_prompt()
-        
         if prompt:
-            print("Next prompt:", prompt)
-'''
+            prompts.append({"Goal": prompt})
+
+    # Write the prompts to the output CSV file
+    with open(output_csv, mode="w", newline='', encoding="utf-8") as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=["Goal"])
+        writer.writeheader()
+        writer.writerows(prompts)
+
+    print(f"Generated {len(prompts)} prompts and saved to {output_csv}")
