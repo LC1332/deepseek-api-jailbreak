@@ -21,6 +21,7 @@
 
 # jailbreak通过率测试
 
+## 测试方法
 选取M个攻击目标query prompt和N个transfer的meta-prompt。
 
 从MN组合中，抽样出KN个(prompt, meta-prompt) , ( K << M, K = 2 )
@@ -28,7 +29,12 @@
 然后进行测试，通过transfer-query之后，再用transfer后的prompt进行query，然后用llm评估攻击是否成功（判断是否拒绝回答），统计通过率
 
 ## jailbreak测试结果
+### 实验1
+测试数据集：请查看./input/
 
+恶意prompt数量：10
+
+测试详细信息（模型给出的回答&越狱过程）：请查看./jailbreak_result/
 
 | Model                         | Jailbreak Rate |
 |-------------------------------|---------------|
@@ -37,20 +43,54 @@
 | 火山方舟DeepSeek-V3            | 50%           |
 | 硅基流动DeepSeek-V3            | 80%           |
 
-接着我又进行了30条恶意prompt的测试，结果如下（由于硅基流动响应过慢没有测试）
+### 实验2
 
+测试数据集：请查看./input/
+
+恶意prompt数量：30
+
+测试详细信息（模型给出的回答&越狱过程）：请查看./jailbreak_result/
+
+（由于硅基流动响应过慢没有测试）
+
+| Model                         | Jailbreak Rate |
+|-------------------------------|---------------|
+| GLM-4-AIR                     | 70%           |
+| 火山方舟DeepSeek-R1            | 73.33%           |
+| 火山方舟DeepSeek-V3            | 53.33%           |
+
+### 实验3
+测试数据集：请查看./input/
+
+恶意prompt数量：30
+
+测试详细信息（模型给出的回答&越狱过程）：请查看./jailbreak_result/
+
+（由于硅基流动响应过慢没有测试）
+
+| Model                         | Jailbreak Rate |
+|-------------------------------|---------------|
+| GLM-4-AIR                     | 70%           |
+| 火山方舟DeepSeek-R1            | 73.33%           |
+| 火山方舟DeepSeek-V3            | 53.33%           |
+
+### 实验4
+
+测试数据集：请查看./input/
+
+恶意prompt数量：60
+
+| Model                         | Jailbreak Rate |
+|-------------------------------|---------------|
+| GLM-4-AIR                     | 68.33%           |
+| 火山方舟DeepSeek-R1            | 76.67%           |
+| 火山方舟DeepSeek-V3            | 56.67%           |
+| 阿里云DeepSeek-R1             | 78.83%         |
+| 阿里云DeepSeek-V3            | 58.33%   |
 
 # Benchmark subset测试
 
 从deepseek原本报告中，找一些确定性评价的题目子集，抽样一个较小的subset，对各家的api进行评估。
-
-# TODO
-
-- wzq，各家api和接口的收集，抽象类编写
-- DONE, 鲁叔， 去初步看看breakjail的benchmark
-- 鲁叔，编写一个基础的gradio的demo，支持一次prompt转写和一次测试
-- 详细检查可以在api下完成的prompt translate的meta prompt
-
 
 
 # 参考资料
