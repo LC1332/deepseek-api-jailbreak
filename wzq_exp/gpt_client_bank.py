@@ -47,18 +47,22 @@ load_dotenv()
 SiliconFlow1 = GPTClientBase(os.getenv("SILICONFLOW_API_KEY"), "deepseek-ai/DeepSeek-R1", "https://api.siliconflow.cn/v1", "硅基流动")
 SiliconFlow2 = GPTClientBase(os.getenv("SILICONFLOW_API_KEY"), "deepseek-ai/DeepSeek-V3", "https://api.siliconflow.cn/v1", "硅基流动")
 VolcanoAI1 = GPTClientBase(os.getenv("VOLCANO_API_KEY"), "ep-20250215104522-c2wll", "https://ark.cn-beijing.volces.com/api/v3", "火山方舟")
-VolcanoAI2 = GPTClientBase(os.getenv("ARK_API_KEY"), "ep-20250215164946-8wkww", "https://ark.cn-beijing.volces.com/api/v3", "火山方舟")
+VolcanoAI2 = GPTClientBase(os.getenv("VOLCANO_API_KEY"), "ep-20250215164946-8wkww", "https://ark.cn-beijing.volces.com/api/v3", "火山方舟")
 GLM = GPTClientBase(os.getenv("GLM_API_KEY"), "glm-4-air", "https://open.bigmodel.cn/api/paas/v4/", "智谱")
 ALI1 = GPTClientBase(os.getenv("ALI_API_KEY"), "deepseek-r1", "https://dashscope.aliyuncs.com/compatible-mode/v1", "阿里云")
 ALI2 = GPTClientBase(os.getenv("ALI_API_KEY"), "deepseek-v3", "https://dashscope.aliyuncs.com/compatible-mode/v1", "阿里云")
+TEN1 = GPTClientBase(os.getenv("TEN_API_KEY"), "deepseek-r1", "https://api.lkeap.cloud.tencent.com/v1", "腾讯云")
+TEN2 = GPTClientBase(os.getenv("TEN_API_KEY"), "deepseek-v3", "https://api.lkeap.cloud.tencent.com/v1", "腾讯云")
 
 def get_gpt_clients() -> list:
     return [
         #("GLM-4-Air", GLM),
         #("火山方舟DeepSeek-R1", VolcanoAI1),
         #("火山方舟DeepSeek-V3", VolcanoAI2),
-        #("阿里云DeepSeek-R1", ALI1),
+        ("阿里云DeepSeek-R1", ALI1),
         ("阿里云DeepSeek-V3", ALI2),
+        ("腾讯云DeepSeek-R1",TEN1),
+        ("腾讯云DeepSeek-V3",TEN2),
         #("硅基流动DeepSeek-R1", SiliconFlow1),
         #("硅基流动DeepSeek-V3", SiliconFlow2),
     ]
@@ -69,7 +73,7 @@ def get_gpt_client_dict() -> dict:
 
 if __name__ == "__main__":
     client_dict = get_gpt_client_dict()
-    model = "阿里云DeepSeek-V3"
+    model = "腾讯云DeepSeek-V3"
     client = client_dict[model]
     response = client.send_text("hello")
     print(response)

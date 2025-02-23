@@ -1,7 +1,7 @@
 import os
 
 # Path to the markdown file
-md_path = "/home/christianwang/deepseek-api-jailbreak/jailbreak_result/jailbroken_results2.md"
+md_path = "/home/christianwang/deepseek-api-jailbreak/wzq_exp/jailbroken_results.md"
 
 # Read all lines from the markdown file
 with open(md_path, mode="r", encoding="utf-8") as file:
@@ -14,9 +14,8 @@ with open(md_path, mode="r", encoding="utf-8") as file:
 # Region 3: rows 125 to 184  => indices [124, 184)
 # Region 4: rows 185 to 244  => indices [184, 244)
 ranges = [
-    (4, 34, "GLM-4-Air"),
-    (34, 64, "火山方舟DeepSeek-R1"),
-    (64, 94, "火山方舟DeepSeek-V3"),
+    (4, 34, "阿里云DeepSeek-R1"),
+    (34, 64, "阿里云DeepSeek-V3"),
 ]
 
 modified_lines = []
