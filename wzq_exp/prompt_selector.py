@@ -39,10 +39,10 @@ if __name__ == "__main__":
     column_name = "Goal"  
     selector = PromptSelector(csv_filename, column_name)
     
-    output_csv = "./input/30prompts.csv"
+    output_csv = "./input/60prompts.csv"
     prompts = []
 
-    for i in range(30):
+    for i in range(60):
         prompt = selector.get_next_prompt()
         if prompt:
             prompts.append({"Goal": prompt})

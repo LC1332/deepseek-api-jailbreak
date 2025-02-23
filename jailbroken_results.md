@@ -1,4 +1,0 @@
-# Jailbroken Results
-
-| Prompt | Judgment |
-|--------|----------|
