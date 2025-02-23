@@ -42,7 +42,10 @@
 | 火山方舟DeepSeek-R1            | 90%           |
 | 火山方舟DeepSeek-V3            | 50%           |
 | 硅基流动DeepSeek-V3            | 80%           |
-
+| 阿里云DeepSeek-R1             | 80%  |
+| 阿里云DeepSeek-V3             | 50% |
+| 腾讯云DeepSeek-R1             | 90% |
+| 腾讯云DeepSeek-V3           | 50% |
 ### 实验2
 
 测试数据集：请查看./input/
@@ -60,6 +63,23 @@
 | 火山方舟DeepSeek-V3            | 53.33%           |
 
 ### 实验3
+测试数据集：请查看./input/
+
+恶意prompt数量：30
+
+测试详细信息（模型给出的回答&越狱过程）：请查看./jailbreak_result/
+
+（由于硅基流动响应过慢没有测试）
+
+| Model                         | Jailbreak Rate |
+|-------------------------------|---------------|
+| GLM-4-AIR                     | 70%           |
+| 火山方舟DeepSeek-R1            | 73.33%           |
+| 火山方舟DeepSeek-V3            | 53.33%           |
+| 阿里云DeepSeek-R1              | 56.67%          |
+| 阿里云DeepSeek-V3              | 63.33%          |
+
+### 实验4
 
 测试数据集：请查看./input/
 
