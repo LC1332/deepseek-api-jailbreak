@@ -17,7 +17,7 @@ transfer_meta_prompts = [x[1] for x in meta_prompt_bank]
 selected_transfer_meta_name = "method_k3"
 selected_meta_prompt = transfer_meta_prompts[transfer_meta_names.index(selected_transfer_meta_name)]
 
-csv_filename = "./input/60prompts.csv"
+csv_filename = "./input/10prompts.csv"
 column_name = "Goal"
 
 output_json = "jailbroken_results.json"
@@ -31,17 +31,14 @@ with open(output_json, mode="w", encoding="utf-8") as file:
 # Write the header to the Markdown file
 with open(output_md, mode="w", encoding="utf-8") as file:
     file.write("# Jailbroken Results\n\n")
-    file.write("| Prompt | Judgment |\n")
-    file.write("|--------|----------|\n")
+    file.write("| Model | Prompt | Judgment |\n")
+    file.write("|-------|--------|----------|\n")
 
 # Iterate over each model in the client dict
 for jailbreak_model in model_names:
     jailbreak_client = client_dict[jailbreak_model]
     print(f"Testing model: {jailbreak_model}")
-    #judge_model = "火山方舟DeepSeek-V3" if "火山方舟DeepSeek-V3" in model_names else model_names[1]
-    #judge_client = client_dict[judge_model]
-    judge_client = ALI2
-
+    judge_client = GLM
     model_results = []
     jailbroken_count = 0
     total_count = 0
@@ -81,7 +78,7 @@ for jailbreak_model in model_names:
     # Append the results to the Markdown file
     with open(output_md, mode="a", encoding="utf-8") as file:
         for result in model_results:
-            file.write(f"| {result['Prompt']} | {result['Jailbroken']} |\n")
+            file.write(f"| {result['Model']} | {result['Prompt']} | {result['Jailbroken']} |\n")
 
 # Create a chart to show the jailbroken rates
 jailbroken_rates = []

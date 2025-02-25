@@ -42,9 +42,12 @@
 | 火山方舟DeepSeek-R1            | 90%           |
 | 火山方舟DeepSeek-V3            | 50%           |
 | 硅基流动DeepSeek-V3            | 80%           |
+| 阿里云DeepSeek-R1             | 80%  |
+| 阿里云DeepSeek-V3             | 50% |
+| 腾讯云DeepSeek-R1             | 90% |
+| 腾讯云DeepSeek-V3           | 50% |
 
 ### 实验2
-
 测试数据集：请查看./input/
 
 恶意prompt数量：30
@@ -58,6 +61,8 @@
 | GLM-4-AIR                     | 70%           |
 | 火山方舟DeepSeek-R1            | 73.33%           |
 | 火山方舟DeepSeek-V3            | 53.33%           |
+| 阿里云DeepSeek-R1              | 56.67%          |
+| 阿里云DeepSeek-V3              | 63.33%          |
 
 ### 实验3
 
