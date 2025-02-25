@@ -17,7 +17,7 @@ transfer_meta_prompts = [x[1] for x in meta_prompt_bank]
 selected_transfer_meta_name = "method_k3"
 selected_meta_prompt = transfer_meta_prompts[transfer_meta_names.index(selected_transfer_meta_name)]
 
-csv_filename = "./input/10prompts.csv"
+csv_filename = "./input/30prompts.csv"
 column_name = "Goal"
 
 output_json = "jailbroken_results.json"

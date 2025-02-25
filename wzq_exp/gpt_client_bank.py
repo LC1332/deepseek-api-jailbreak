@@ -61,8 +61,8 @@ def get_gpt_clients() -> list:
         #("火山方舟DeepSeek-V3", VolcanoAI2),
         ("阿里云DeepSeek-R1", ALI1),
         ("阿里云DeepSeek-V3", ALI2),
-        ("腾讯云DeepSeek-R1",TEN1),
-        ("腾讯云DeepSeek-V3",TEN2),
+        #("腾讯云DeepSeek-R1",TEN1),
+        #("腾讯云DeepSeek-V3",TEN2),
         #("硅基流动DeepSeek-R1", SiliconFlow1),
         #("硅基流动DeepSeek-V3", SiliconFlow2),
     ]

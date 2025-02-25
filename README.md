@@ -61,8 +61,8 @@
 | GLM-4-AIR                     | 70%           |
 | 火山方舟DeepSeek-R1            | 73.33%           |
 | 火山方舟DeepSeek-V3            | 53.33%           |
-| 阿里云DeepSeek-R1              | 56.67%          |
-| 阿里云DeepSeek-V3              | 63.33%          |
+| 阿里云DeepSeek-R1              | 73.33%          |
+| 阿里云DeepSeek-V3              | 56.67%         |
 
 ### 实验3
 
